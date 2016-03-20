@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <title>@ViewBag.Title </title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
 
+    <link href="~/Content/bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap/sb-admin.css" rel="stylesheet" />
+    <link href="~/Content/jqx/jqx.base.css" rel="stylesheet" />
+    <link href="~/Content/jqx/jqx.bootstrap.css" rel="stylesheet" />
+
 
     <script src="~/Scripts/jquery-2.2.1.min.js"></script>
     <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/jqx/jqx-all.js"></script>
+
 </head>
 <body>
 
@@ -132,45 +138,7 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-                    </li>
-                </ul>
-            </div>
+            @Html.Partial("_MenuNavigation")
             <!-- /.navbar-collapse -->
         </nav>
         <div id="page-wrapper">
@@ -178,11 +146,27 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Dashboard <small>Statistics Overview</small>
-                        </h1>
+                        <div class="col-md-12">
+                            <div class="col-md-8">
+                                <h4>
+                                    @ViewBag.Title
+                                </h4>
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="btn-group inline pull-right">
+                                    <div class="col-md-3"><button type="button" class="btn btn-primary" id="btnAdd">Add</button></div>
+                                    <div class="col-md-3"><button type="button" class="btn btn-info" id="btnEdit">Edit</button></div>
+                                    <div class="col-md-3"><button type="button" class="btn btn-danger" id="btnDelete">Delete</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                        </div>
+
                         <div id="body">
-                        @RenderBody()
+                            @RenderBody()
                         </div>
                     </div>
                 </div>
@@ -192,7 +176,7 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
-    
+
 </body>
 @RenderSection("featured", required: false)
 </html>
